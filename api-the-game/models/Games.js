@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const gameSchema = new mongoose.Schema({
     title: String,
-    plataform: String,
+    platform: String,
     year: Number,
     price: Number,
 });
