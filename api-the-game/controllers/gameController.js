@@ -19,7 +19,7 @@ const createGame = async (req, res) => {
         const { title, platform, year, price } = req.body;
         await gameService.create(title, platform, year, price);
         // Criado com sucesso
-        res.status(201); // 201 Success
+        res.sendStatus(201); // 201 Success
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: "Erro interno do servidor." });
@@ -33,9 +33,9 @@ const deleteGame = async (req, res) => {
             const id = req.params.id;
             await gameService.delete(id);
             // Deletado com sucesso
-            res.sendStatus(204) // 204 No Content
+            res.sendStatus(204); // 204 No Content
         } else {
-            res.sendStatus(400) // 400 Bad Request
+            res.status(400).json({ error: "ID inválido" }); // 400 Bad Request - requisição mal formada
         }
     } catch (error) {
         console.log(error);
@@ -43,4 +43,39 @@ const deleteGame = async (req, res) => {
     }
 };
 
-export default { getAllGames, createGame, deleteGame };
+const updateGame = async (req, res) => {
+    try {
+        if (ObjectId.isValid(req.params.id)) {
+            const id = req.params.id;
+            const { title, platform, year, price } = req.body;
+            await gameService.update(id, title, platform, year, price);
+            res.sendStatus(200);
+        } else {
+            res.status(400).json({ error: "ID inválido" });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "Erro interno do servidor." });
+    }
+};
+
+// Função para listar um único jogo
+const getOneGame = async (req, res) => {
+    try {
+        if (ObjectId.isValid(req.params.id)) {
+            const id = req.params.id;
+            const game = await gameService.getOne(id);
+            if (!game) {
+                res.status(404).json({ error: "Jogo não encontrado" }); // 404 Not Found - não encontrado
+            } else {
+                res.status(200).json(game);
+            }
+        } else {
+            res.status(400).json({ error: "ID inválido" });
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export default { getAllGames, createGame, deleteGame, updateGame, getOneGame };

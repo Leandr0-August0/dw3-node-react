@@ -11,4 +11,10 @@ gameRoutes.post("/games", gameController.createGame);
 // Endpoint para excluir um game (rota)
 gameRoutes.delete("/games/:id", gameController.deleteGame);
 
+// Endpoint para atualizar um game (rota)
+gameRoutes.put("/games/:id", gameController.updateGame);
+
+// Endpoint para buscar um game pelo id (rota)
+gameRoutes.get("/games/:id", gameController.getOneGame);
+
 export default gameRoutes;
