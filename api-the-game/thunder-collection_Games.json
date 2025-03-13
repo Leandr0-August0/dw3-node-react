@@ -1,0 +1,81 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Games",
+    "collectionId": "33f80b64-1fc0-440e-9cda-ad8af7923442",
+    "dateExported": "2025-03-13T19:58:52.474Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "84106451-fbbc-435e-b2e3-76e98220f1b5",
+            "colId": "33f80b64-1fc0-440e-9cda-ad8af7923442",
+            "containerId": "",
+            "name": "Deletar um jogo com ID",
+            "url": "http://localhost:3000/games/67d3294db6f20daaeadaae45",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2025-03-13T18:53:44.022Z",
+            "modified": "2025-03-13T18:53:44.022Z",
+            "headers": []
+        },
+        {
+            "_id": "0c487ffe-4ef5-4ff9-b209-9ec6f6d4289b",
+            "colId": "33f80b64-1fc0-440e-9cda-ad8af7923442",
+            "containerId": "",
+            "name": "Alterar um jogo com ID",
+            "url": "http://localhost:3000/games/67d32918b6f20daaeadaae3f",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2025-03-13T18:53:50.575Z",
+            "modified": "2025-03-13T18:53:50.575Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Crash of the Titans\",\n  \"platform\": \"PS2\",\n  \"year\": 2007,\n  \"price\": 5\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "96acf3e8-e00d-4b23-8c57-98bbc8cee0c0",
+            "colId": "33f80b64-1fc0-440e-9cda-ad8af7923442",
+            "containerId": "",
+            "name": "Buscar um jogo pela ID",
+            "url": "http://localhost:3000/games/67d32918b6f20daaeadaae3f",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2025-03-13T18:53:57.695Z",
+            "modified": "2025-03-13T18:53:57.695Z",
+            "headers": []
+        },
+        {
+            "_id": "15d90bbf-c40b-40df-99f4-81a222f0a631",
+            "colId": "33f80b64-1fc0-440e-9cda-ad8af7923442",
+            "containerId": "",
+            "name": "Cadastrar um novo jogo",
+            "url": "http://localhost:3000/games/",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2025-03-13T18:54:03.823Z",
+            "modified": "2025-03-13T18:54:03.823Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Crash of the Titans\",\n  \"platform\": \"PS2\",\n  \"year\": 2000,\n  \"price\": 5\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "644b0187-ceb8-42a4-9a82-500344834d87",
+            "colId": "33f80b64-1fc0-440e-9cda-ad8af7923442",
+            "containerId": "",
+            "name": "Buscar todos os jogos",
+            "url": "http://localhost:3000/games/",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2025-03-13T18:54:09.479Z",
+            "modified": "2025-03-13T18:54:09.479Z",
+            "headers": []
+        }
+    ],
+    "ref": "KhNqfqR5QOR3-ZVjx1srFfF71YLhCRmHngK9IOkO-52xJU2j_jubA8NJzvVQZA8BfBRT7AqD8rZ5Noivoo57UQ"
+}
