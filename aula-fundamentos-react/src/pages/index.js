@@ -6,6 +6,9 @@ import { Descriptions } from "@/components/Descriptions";
 import { Dog } from "@/components/Dog";
 import { Counter } from "@/components/Counter";
 import { Counter2 } from "@/components/Counter2";
+import { TrafficLight } from "@/components/TrafficLight";
+import { Form } from "@/components/FormCadastro";
+import { TaskList } from "@/components/TaskList";
 
 export default function Home() {
     return (
@@ -37,6 +40,34 @@ export default function Home() {
                 {/* Chamando contador */}
                 <Counter />
                 <Counter2 />
+                <TrafficLight />
+                <br />
+                <br />
+                <Form />
+
+                <br />
+                <br />
+                {/* Passando a lista de tarefas por props */}
+                <TaskList
+                    tasks={[
+                        {
+                            id: 1,
+                            title: "Estudar React",
+                        },
+                        {
+                            id: 2,
+                            title: "Pagar boletos",
+                        },
+                        {
+                            id: 3,
+                            title: "Retirar o lixo",
+                        },
+                        {
+                            id: 4,
+                            title: "Lavar roupa",
+                        },
+                    ]}
+                />
             </main>
         </>
     );
