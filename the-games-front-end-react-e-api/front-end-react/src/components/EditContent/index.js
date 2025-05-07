@@ -2,7 +2,7 @@ import styles from "@/components/EditContent/EditContent.module.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const EditContent = ({ onClose, game }) => {
+const EditContent = ({ onClose, game, handleUpdate }) => {
     // criando os stados para as informações do jogo
     const [id, setId] = useState("");
     const [title, setTitle] = useState("");
@@ -27,7 +27,6 @@ const EditContent = ({ onClose, game }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const updatedGame = {
-            _id: id,
             title,
             year,
             price,
@@ -44,6 +43,7 @@ const EditContent = ({ onClose, game }) => {
             );
             if (response.status === 200) {
                 alert("Jogo atualizado com sucesso!");
+                handleUpdate(response.data.game);
             }
         } catch (error) {
             console.log(error);
