@@ -1,6 +1,7 @@
 import styles from "@/components/EditContent/EditContent.module.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { axiosConfig } from "@/services/auth";
 
 const EditContent = ({ onClose, game, handleUpdate }) => {
     // criando os stados para as informações do jogo
@@ -39,7 +40,8 @@ const EditContent = ({ onClose, game, handleUpdate }) => {
         try {
             const response = await axios.put(
                 `http://localhost:4000/games/${id}`,
-                updatedGame
+                updatedGame,
+                axiosConfig
             );
             if (response.status === 200) {
                 alert("Jogo atualizado com sucesso!");

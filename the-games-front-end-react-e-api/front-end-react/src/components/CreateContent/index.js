@@ -2,6 +2,7 @@ import styles from "@/components/CreateContent/CreateContent.module.css";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { axiosConfig } from "@/services/auth";
 
 const CreateContent = () => {
     // criando os stados para as informações do jogo
@@ -12,7 +13,7 @@ const CreateContent = () => {
     const [year, setYear] = useState("");
     const [price, setPrice] = useState("");
 
-    const router = useRouter()
+    const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -27,18 +28,22 @@ const CreateContent = () => {
                     platform: platform,
                     genre: genre,
                     rating: rating,
-                }
+                },
             };
             // console.log(game)
-            try{
-                const response = await axios.post("http://localhost:4000/games", game)
-                if (response.status === 201){
-                    alert('Jogo cadastrado com sucesso!')
+            try {
+                const response = await axios.post(
+                    "http://localhost:4000/games",
+                    game,
+                    axiosConfig
+                );
+                if (response.status === 201) {
+                    alert("Jogo cadastrado com sucesso!");
                 }
-            }catch (error){
-                console.log(error)
-            }finally {
-                router.push('http://localhost:3000/home')
+            } catch (error) {
+                console.log(error);
+            } finally {
+                router.push("http://localhost:3000/home");
             }
         }
     };
@@ -48,7 +53,11 @@ const CreateContent = () => {
             <div className="title">
                 <h2>Cadastrar novo jogo</h2>
             </div>
-            <form id="createForm" className="formPrimary" onSubmit={(e) => handleSubmit(e)}>
+            <form
+                id="createForm"
+                className="formPrimary"
+                onSubmit={(e) => handleSubmit(e)}
+            >
                 <input
                     type="text"
                     name="title"
